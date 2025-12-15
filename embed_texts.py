@@ -74,7 +74,7 @@ def main():
         df_docs_for_embedding = df_col.loc[mask].copy()
             
         # list of texts for embedding
-        texts = df_docs_for_embedding[col].astype(str).tolist()
+        texts = df_docs_for_embedding[col].astype(str).str.tolist()
 
         # save ONLY texts used for embedding
         df_docs_for_embedding.to_csv(
@@ -88,7 +88,7 @@ def main():
             show_progress_bar=True,
             convert_to_numpy=True,
         )
-        output_file = os.path.join(output_dir, f"{args.output}_{col}.npy")
+        output_file = os.path.join(output_dir, f"{args.output}_{col}_uppercase.npy")
         print(f"Embeddings shape for {col}: {embeddings.shape}")
         print(f"=== Saving embeddings to {output_file} ===")
         np.save(output_file, embeddings)    
