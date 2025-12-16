@@ -19,5 +19,5 @@ source myenv/bin/activate
 
 python embed_texts.py \
     --input data/answers.csv \
-    --output emb \
-    --model NetherlandsForensicInstitute/robbert-2022-dutch-sentence-transformers
+    --output emb_miniv2 \
+    --model sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
